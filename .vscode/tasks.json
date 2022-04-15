@@ -1,0 +1,37 @@
+{
+  // See https://go.microsoft.com/fwlink/?LinkId=733558
+  // for the documentation about the tasks.json format
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Build C++",
+      "type": "cppbuild",
+      "command": "g++",
+      "args": [
+        "-g",
+
+        // Make GCC libraries static
+        "-static",
+        "-static-libgcc",
+        "-static-libstdc++",
+
+        // Enable all warnings
+        "-Wall",
+        
+        // Source code
+        "${file}",
+
+        // Executable output
+        "-o",
+        "${workspaceFolder}/Primosophie.exe",
+      ],
+      "group": "build",
+      "presentation": {
+        // Reveal the output only if unrecognized errors occur.
+        // "reveal": "silent"
+      },
+      // Use the GCC compiler pattern to detect errors, warnings and infos
+      "problemMatcher": "$gcc"
+    }
+  ]
+}
